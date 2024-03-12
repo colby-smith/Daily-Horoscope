@@ -7,7 +7,7 @@ To use this program effectively make sure you have installed:
 * Python 3.12.2
 * bash or zsh
 * pip
-* BeautifulSoup python library
+* BeautifulSoup library
 * requests library
 
 ## Installing WSL (Windows Subsystem for Linux)
