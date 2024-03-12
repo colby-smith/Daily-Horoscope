@@ -6,15 +6,15 @@ from datetime import date
 ### entering starsign
 ### if people don't know their sign, have them enter their date of birth to be given it
 
-HEADERS = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"}
-PAGE = requests.get("https://www.elle.com/horoscopes/daily/a104/scorpio-daily-horoscope/", headers=HEADERS)
-SOUP = BeautifulSoup(PAGE.text, "html.parser")
-content = SOUP.find_all(class_="css-1wfsl5s et3p2gv0")
+# HEADERS = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"}
+# PAGE = requests.get("https://www.elle.com/horoscopes/daily/a104/scorpio-daily-horoscope/", headers=HEADERS)
+# SOUP = BeautifulSoup(PAGE.text, "html.parser")
+# content = SOUP.find_all(class_="css-1wfsl5s et3p2gv0")
 
 def main():
     starsign = get_starsign()
     get_date(starsign)
-    # get_horoscope(starsign)
+    get_horoscope_content(starsign)
     
 def get_starsign():
     get_starsign = input("Please enter your starsign to recieve your daily horoscope: ").strip().lower()
@@ -31,25 +31,67 @@ def get_date(starsign):
     print (f"-------------------------------------------{display_date}-------------------------------------------")
 
 
-def get_horoscope(starsign):
+def get_horoscope_content(starsign):
     headers = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"}
     if starsign == "aquarius":
-        url = "https://www.elle.com/horoscopes/daily/a107/aquarius-daily-horoscope/"
-        return (url)
-        
-    page = requests.get(f"https://www.elle.com/horoscopes/daily/a104/{starsign}-daily-horoscope/", headers=headers)
-    soup = BeautifulSoup(page.text, "html.parser")
-    content_elements = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
-    for content in content_elements:
-        horoscope_text = content.text.strip()
-        if "See All Signs" not in horoscope_text:
-            print (horoscope_text)
+        page = requests.get("https://www.elle.com/horoscopes/daily/a107/aquarius-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0") 
+        return (content)
+    if starsign == "libra":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a103/libra-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "capricorn":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a106/capricorn-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "virgo":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a102/virgo-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "pisces":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a108/pisces-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "sagittarius":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a105/sagittarius-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "leo":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a101/leo-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")        
+        return (content)
+    if starsign == "scorpio":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a104/scorpio-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")         
+        return (content)
+    if starsign == "cancer":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a100/cancer-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "gemini":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a99/gemini-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "taurus":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a98/taurus-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
+    if starsign == "aries":
+        page = requests.get("https://www.elle.com/horoscopes/daily/a60/aries-daily-horoscope/", headers=headers)
+        soup = BeautifulSoup(page.text, "html.parser")
+        content = soup.find_all(class_="css-1nd4gv7 et3p2gv0")
+        return (content)
     
-    print ("---------------------------------------------------------------------------------------------------------------------------------")
-    
-
-
-
-
-
 main()
